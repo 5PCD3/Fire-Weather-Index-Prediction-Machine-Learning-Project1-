@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Fire Weather Index Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+    
+<body>
+    <div class = "login">
+        <h1>Fire Weather Index Prediction</h1>
+
+        <!--Main input for reciving quary to our ML-->
+        
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+            <label for="Temperature">Temperature           :</label>
+
+            <input type= "text" name="Temperature" placeholder= "Temperature" required="required"   /><br>
+                <label for="RH">Relative Humidity(%):</label>
+
+                <input type= "text" name="RH" placeholder= "RH" required="required" /><br>
+                <label for="Ws">Wind Speed (km/h)   :</label>
+
+                <input type= "text" name="Ws" placeholder= "Ws" required="required" /><br>
+                <label for="Rain">Rain (mm)             :</label> 
+                                                         
+                <input type= "text" name="Rain" placeholder= "Rain" required="required" /><br>
+                <label for="FFMC">Fine Fuel Moisture Code:</label> 
+
+                <input type= "text" name="FFMC" placeholder= "FFMC" required="required" /><br>
+                <label for="DMC">Duff Moisture Code    :</label>
+
+                <input type= "text" name="DMC" placeholder= "DMC" required="required" /><br>
+                <label for="ISI">Initial Spread Index   :</label>
+                                                        
+                <input type= "text" name="ISI" placeholder= "ISI" required="required" /><br>
+                <label for="Classes">Classes                :</label>
+                                                            
+                <input type= "text" name="Classes" placeholder= "Classes" required="required" /><br>
+                <label for="Region">Region:             </label>
+                                                        
+                <input type= "text" name="Region" placeholder= "Region" required="required" /><br>
+                    
+
+                <button type="submit" class="btn btn-primary btn-block btn-large ">Predict</button>
+        </form>
+    <h2>    
+        THE Fire Weather Index prediction is {{result}}
+    </h2>
